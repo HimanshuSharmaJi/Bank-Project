@@ -4,6 +4,12 @@
 #include "I_printable.h"
 using namespace std;
 
+enum AccountType
+{
+	AC_SAVING,
+	AC_SALARY
+};
+
 class Account: public i_printable{ //due to pure virtual functions Now This Class is a ABSTRACT CLASS (objects of this class can not be created)
 protected:
 	string name;
@@ -16,6 +22,7 @@ public:
 	virtual void print(std::ostream &os) const override;
 	virtual ~Account(){cout<<endl<<"Account Destructor called";}
 
-
+	
+	static Account* Create(AccountType);
 
 };
